@@ -20,9 +20,15 @@ const updateProduct = async (id: string, payload: Partial<Product>) => {
   return result;
 };
 
+const deleteProduct = async (id: string) => {
+  const result = await Book.findByIdAndDelete(id);
+  return result;
+};
+
 export const ProductServices = {
   createProductIntoDB,
   getAllProductsFromDB,
   getAProductFromDB,
   updateProduct,
+  deleteProduct,
 };
