@@ -6,6 +6,12 @@ const createProductIntoDB = async (product: Product) => {
   return result;
 };
 
+const getAllProductsFromDB = async () => {
+  const result = await Book.find();
+  return result;
+};
+
 export const ProductServices = {
   createProductIntoDB,
+  getAllProductsFromDB,
 };
