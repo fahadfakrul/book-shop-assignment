@@ -3,8 +3,17 @@ import { Product } from './product.interface';
 
 const productSchema = new Schema<Product>(
   {
-    title: { type: String, required: [true, 'Title is required'] },
-    author: { type: String, required: [true, 'Author is required'] },
+    title: {
+      type: String,
+      required: [true, 'Title is required'],
+      unique: true,
+      trim: true,
+    },
+    author: {
+      type: String,
+      required: [true, 'Author is required'],
+      trim: true,
+    },
     price: { type: Number, required: true, min: 0 },
     category: {
       type: String,

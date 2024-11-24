@@ -46,8 +46,27 @@ const getAProduct = async (req: Request, res: Response) => {
   }
 };
 
+const updateProduct = async (req: Request, res: Response) => {
+  try {
+    const { productId } = req.params;
+    const updatedProduct = req.body;
+    const result = await ProductServices.updateProduct(
+      productId,
+      updatedProduct,
+    );
+    res.status(200).json({
+      success: true,
+      message: 'Book updated successfully',
+      data: result,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const ProductControllers = {
   createProduct,
   getAllProducts,
   getAProduct,
+  updateProduct,
 };
