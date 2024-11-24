@@ -10,8 +10,13 @@ const getAllProductsFromDB = async () => {
   const result = await Book.find();
   return result;
 };
+const getAProductFromDB = async (id: string) => {
+  const result = await Book.findOne({ _id: id });
+  return result;
+};
 
 export const ProductServices = {
   createProductIntoDB,
   getAllProductsFromDB,
+  getAProductFromDB,
 };
