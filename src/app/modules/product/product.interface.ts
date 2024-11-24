@@ -1,6 +1,7 @@
 import { Schema, model, connect } from 'mongoose';
 
 export type Product = {
+  id: string;
   title: string;
   author: string;
   price: number;
