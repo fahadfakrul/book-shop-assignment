@@ -1,4 +1,4 @@
-import { Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { Product } from './product.interface';
 
 const productSchema = new Schema<Product>(
@@ -6,7 +6,11 @@ const productSchema = new Schema<Product>(
     title: { type: String, required: true },
     author: { type: String, required: true },
     price: { type: Number, required: true, min: 0 },
-    category: ['Fiction', 'Science', 'SelfDevelopment', 'Poetry', 'Religious'],
+    category: {
+      type: String,
+      enum: ['Fiction', 'Science', 'SelfDevelopment', 'Poetry', 'Religious'],
+      required: true,
+    },
     description: { type: String },
     quantity: { type: Number, required: true, min: 0 },
     inStock: { type: Boolean, required: true },
