@@ -11,11 +11,11 @@ const createProduct = async (req: Request, res: Response) => {
       message: 'Book created successfully',
       data: result,
     });
-  } catch (err) {
-    res.send({
+  } catch (err: any) {
+    res.status(404).json({
       success: false,
-      message: 'Book creation failed',
-      err,
+      message: err.message || 'Book creation failed',
+      error: err,
     });
   }
 };
@@ -28,11 +28,11 @@ const getAllProducts = async (req: Request, res: Response) => {
       message: 'Books retrieved successfully',
       data: result,
     });
-  } catch (err) {
-    res.send({
+  } catch (err: any) {
+    res.status(404).json({
       success: false,
-      message: 'Book retrieved failed',
-      err,
+      message: err.message || 'Book retrieved failed',
+      error: err,
     });
   }
 };
@@ -45,11 +45,11 @@ const getAProduct = async (req: Request, res: Response) => {
       message: 'Book retrieved successfully',
       data: result,
     });
-  } catch (err) {
-    res.send({
+  } catch (err: any) {
+    res.status(404).json({
       success: false,
-      message: 'Book retrieved failed',
-      err,
+      message: err.message || 'Book retrieved failed',
+      error: err,
     });
   }
 };
@@ -67,11 +67,11 @@ const updateProduct = async (req: Request, res: Response) => {
       message: 'Book updated successfully',
       data: result,
     });
-  } catch (err) {
-    res.send({
+  } catch (err: any) {
+    res.status(404).json({
       success: false,
-      message: 'Book updated failed',
-      err,
+      message: err.message || 'Book updating failed',
+      error: err,
     });
   }
 };
@@ -85,11 +85,11 @@ const deleteProduct = async (req: Request, res: Response) => {
       message: 'Book deleted successfully',
       data: result,
     });
-  } catch (err) {
-    res.send({
+  } catch (err: any) {
+    res.status(404).json({
       success: false,
-      message: 'Book cannot be deleted',
-      err,
+      message: err.message || 'Book deleting failed',
+      error: err,
     });
   }
 };
