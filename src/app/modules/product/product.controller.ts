@@ -12,11 +12,11 @@ const createProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.error(err);
-    // res.status(500).json({
-    //   success: false,
-    //   message: 'Server error',
-    // });
+    res.send({
+      success: false,
+      message: 'Book creation failed',
+      err,
+    });
   }
 };
 
@@ -29,7 +29,11 @@ const getAllProducts = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.log(err);
+    res.send({
+      success: false,
+      message: 'Book retrieved failed',
+      err,
+    });
   }
 };
 const getAProduct = async (req: Request, res: Response) => {
@@ -42,7 +46,11 @@ const getAProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.log(err);
+    res.send({
+      success: false,
+      message: 'Book retrieved failed',
+      err,
+    });
   }
 };
 
@@ -60,7 +68,11 @@ const updateProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.log(err);
+    res.send({
+      success: false,
+      message: 'Book updated failed',
+      err,
+    });
   }
 };
 
@@ -74,7 +86,11 @@ const deleteProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.log(err);
+    res.send({
+      success: false,
+      message: 'Book cannot be deleted',
+      err,
+    });
   }
 };
 
